@@ -1,7 +1,21 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { RegisterT } from '@/Declarations/types';
+import { IProfile } from '@/declarations/interfaces';
+import { RegisterT } from '@/declarations/types';
 import api from '@/utils/api';
+
+const ActionType = {
+	RECEIVE_USERS: 'RECEIVE_USERS',
+};
+
+const receiveUsersActionCreator = (users: IProfile[]) => {
+	return {
+		type: ActionType.RECEIVE_USERS,
+		payload: {
+			users,
+		},
+	};
+};
 
 const asyncRegisterUser = ({ name, email, password }: RegisterT) => {
 	return async (dispatch: Dispatch) => {
@@ -17,4 +31,4 @@ const asyncRegisterUser = ({ name, email, password }: RegisterT) => {
 	};
 };
 
-export { asyncRegisterUser };
+export { ActionType, asyncRegisterUser, receiveUsersActionCreator };

@@ -1,25 +1,17 @@
-'use client';
+import { IThreadsAndUsers } from '@/declarations/interfaces';
 
-import { useEffect } from 'react';
-import { IThread } from '@/Declarations/interfaces';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { RootState } from '@/redux/store';
-import { asyncReceiveThreads } from '@/redux/threads/action';
+type ThreadListProps = {
+	threads: IThreadsAndUsers[]
+};
 
-const ThreadList = () => {
-	const threads: IThread[] = useAppSelector((states: RootState) => states.threads);
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		dispatch(asyncReceiveThreads());
-		console.log(threads);
-	}, [dispatch]);
-
+const ThreadList = ({ threads }: ThreadListProps) => {
 	return (
 		<div>
 			<ul>
-				{threads.map((thread) => (
-					<li key={thread.id}><p>{thread.title}</p></li>
+				{threads?.map((thread) => (
+					<div key={thread.id}>
+						<p>{thread.users.name}</p>
+					</div>
 				))}
 			</ul>
 		</div>

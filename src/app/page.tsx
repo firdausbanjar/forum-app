@@ -1,17 +1,32 @@
-import { redirect } from 'next/navigation';
+'use client';
+
+import { useEffect } from 'react';
 import ThreadList from '@/components/ThreadList';
+import { IProfile, IThread } from '@/declarations/interfaces';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { asyncReceiveThreadsAndUser } from '@/redux/shared/action';
+import { RootState } from '@/redux/store';
 
-export default async function Home() {
-	const auth = true;
+const Home = () => {
+	const threads: IThread[] = useAppSelector((states: RootState) => states.threads);
+	const users: IProfile[] = useAppSelector((states: RootState) => states.users);
 
-	if (!auth) {
-		return redirect('/login');
-	}
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(asyncReceiveThreadsAndUser());
+	}, [dispatch]);
+
+	const threadList = threads.map((thread) => ({
+		...thread,
+		users: users.find((user) => user.id === thread.ownerId)!,
+	}));
 
 	return (
 		<div>
-			{'ini dari src/app/page.tsx'}
-			<ThreadList />
+			<ThreadList threads={threadList} />
 		</div>
 	);
-}
+};
+
+export default Home;

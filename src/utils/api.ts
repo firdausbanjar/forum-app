@@ -1,18 +1,19 @@
 import {
 	IResponseAllThreads,
+	IResponseAllUsers,
 	IResponseCreateComment,
 	IResponseCreateThread,
 	IResponseLogin,
 	IResponseProfile,
 	IResponseRegister,
 	IResponseThreadDetail,
-} from '@/Declarations/interfaces';
+} from '@/declarations/interfaces';
 import {
 	CommentT,
 	LoginT,
 	RegisterT,
 	ThreadT,
-} from '@/Declarations/types';
+} from '@/declarations/types';
 
 const api = (() => {
 	const BASE_URL = 'https://forum-api.dicoding.dev/v1';
@@ -158,6 +159,20 @@ const api = (() => {
 		return comment;
 	};
 
+	const getAllUsers = async () => {
+		const response = await fetch(`${BASE_URL}/users`);
+		const responseJson: IResponseAllUsers = await response.json();
+		const { status, message } = responseJson;
+
+		if (status !== 'success') {
+			throw new Error(message);
+		}
+
+		const { data: { users } } = responseJson;
+
+		return users;
+	};
+
 	return {
 		getAccessToken,
 		putAccessToken,
@@ -168,6 +183,7 @@ const api = (() => {
 		getThreadDetail,
 		createThread,
 		createComment,
+		getAllUsers,
 	};
 })();
 

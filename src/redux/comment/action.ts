@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { ICreateComment } from '@/Declarations/interfaces';
-import { CommentT } from '@/Declarations/types';
+import { ICreateComment } from '@/declarations/interfaces';
+import { CommentT } from '@/declarations/types';
 import api from '@/utils/api';
 
 const ActionType = {
@@ -23,7 +23,7 @@ const asyncAddComment = ({ threadId, content }: CommentT) => {
 
 		try {
 			const comment = await api.createComment({ threadId, content });
-			addCommentActionCreator(comment);
+			dispatch(addCommentActionCreator(comment));
 		} catch (error: any) {
 			alert(error.message);
 		}

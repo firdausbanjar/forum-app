@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { IThreadDetail } from '@/Declarations/interfaces';
+import { IThreadDetail } from '@/declarations/interfaces';
 import api from '@/utils/api';
 
 const ActionType = {

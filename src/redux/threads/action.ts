@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { IThread } from '@/Declarations/interfaces';
-import { ThreadT } from '@/Declarations/types';
+import { IThread } from '@/declarations/interfaces';
+import { ThreadT } from '@/declarations/types';
 import api from '@/utils/api';
 
 const ActionType = {
@@ -27,21 +27,6 @@ const addThreadActionCreator = (thread: IThread) => {
 	};
 };
 
-const asyncReceiveThreads = () => {
-	return async (dispatch: Dispatch) => {
-		dispatch(showLoading());
-
-		try {
-			const threads: IThread[] = await api.getAllThreads();
-			receiveThreadsActionCreator(threads);
-		} catch (error: any) {
-			alert(error.message);
-		}
-
-		dispatch(hideLoading());
-	};
-};
-
 const asyncAddThread = ({ title, body, category }: ThreadT) => {
 	return async (dispatch: Dispatch) => {
 		dispatch(showLoading());
@@ -60,6 +45,5 @@ const asyncAddThread = ({ title, body, category }: ThreadT) => {
 export {
 	ActionType,
 	asyncAddThread,
-	asyncReceiveThreads,
 	receiveThreadsActionCreator,
 };

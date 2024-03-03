@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { IProfile } from '@/Declarations/interfaces';
-import { LoginT } from '@/Declarations/types';
+import { IProfile } from '@/declarations/interfaces';
+import { LoginT } from '@/declarations/types';
 import api from '@/utils/api';
 
 const ActionType = {

@@ -45,6 +45,10 @@ export interface IThreadDetail extends Omit<IThread, 'ownerId' | 'totalComments'
 	comments: IThreadDetailComment[]
 }
 
+export interface IThreadsAndUsers extends IThread {
+	users: IProfile
+}
+
 export interface IResponseRegister extends IResponse {
 	data: {
 		user: IRegister
@@ -84,5 +88,11 @@ export interface IResponseCreateThread extends IResponse {
 export interface IResponseCreateComment extends IResponse {
 	data: {
 		comment: ICreateComment
+	}
+}
+
+export interface IResponseAllUsers extends IResponse {
+	data: {
+		users: IProfile[]
 	}
 }

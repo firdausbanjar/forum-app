@@ -29,12 +29,24 @@
 		"react/jsx-indent-props": ["error", "tab"],
 		"react/button-has-type": "off",
 		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/function-component-definition": "off",
 		"react/jsx-curly-brace-presence": [
 			"error",
 			{
 				"props": "ignore",
 				"children": "always"
 			}
-		]
+		],
+		"react/jsx-max-props-per-line": [
+			"error",
+			{
+				"maximum": {
+					"single": 1,
+					"multi": 1
+				}
+			}
+		],
+		"@next/next/no-img-element": "off"
 	}
 }

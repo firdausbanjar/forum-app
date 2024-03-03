@@ -5,8 +5,8 @@ export type RegisterT = {
 };
 
 export type LoginT = {
-	email?: string
-	password?: string
+	email: string
+	password: string
 };
 
 export type ThreadT = {

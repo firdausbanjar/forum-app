@@ -1,3 +1,5 @@
+'use client';
+
 import StoreProvider from './StoreProvider';
 import './globals.css';
 

@@ -13,7 +13,7 @@ const UserInfo = ({ name, createdAt, avatar }: UserInfoProps) => {
 				className="object-cover rounded-full mr-2 w-14 h-14"
 			/>
 			<div>
-				<p>{name}</p>
+				<p className="font-semibold">{name}</p>
 				<p>{createdAt}</p>
 			</div>
 		</div>

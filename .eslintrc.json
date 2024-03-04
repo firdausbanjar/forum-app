@@ -11,6 +11,7 @@
 		"no-underscore-dangle": "off",
 		"import/prefer-default-export": "off",
 		"import/no-cycle": "off",
+		"quote-props": ["error", "as-needed"],
 		"max-len": [
 			"error",
 			{
@@ -30,6 +31,7 @@
 		"react/button-has-type": "off",
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-props-no-spreading": "off",
+		"react/no-danger": "off",
 		"react/function-component-definition": "off",
 		"react/jsx-curly-brace-presence": [
 			"error",
@@ -47,6 +49,24 @@
 				}
 			}
 		],
+		"react/self-closing-comp": [
+			"error",
+			{
+				"component": true,
+				"html": false
+			}
+		],
 		"@next/next/no-img-element": "off"
-	}
+	},
+	"ignorePatterns": [
+		".next",
+		"node_modules",
+		"next.config.mjs",
+		"next-env.d.ts",
+		"package-lock.json",
+		"package.json",
+		"postcss.config.js",
+		"tailwind.config.ts",
+		"tsconfig.json"
+	]
 }

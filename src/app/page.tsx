@@ -22,8 +22,12 @@ const Home = () => {
 		users: users.find((user) => user.id === thread.ownerId)!,
 	}));
 
+	if (threads.length === 0 || users.length === 0) {
+		return null;
+	}
+
 	return (
-		<div>
+		<div className="h-full">
 			<ThreadList threads={threadList} />
 		</div>
 	);

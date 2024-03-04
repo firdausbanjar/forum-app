@@ -9,7 +9,7 @@ const ActionType = {
 	UNSET_AUTH_USER: 'UNSET_AUTH_USER',
 };
 
-const setAuthUserActionCreator = (authUser: IProfile) => {
+const setAuthUserActionCreator = (authUser: IProfile | null) => {
 	return {
 		type: ActionType.SET_AUTH_USER,
 		payload: {

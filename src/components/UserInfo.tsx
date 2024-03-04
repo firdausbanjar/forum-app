@@ -6,10 +6,11 @@ type UserInfoProps = {
 
 const UserInfo = ({ name, createdAt, avatar }: UserInfoProps) => {
 	return (
-		<div>
+		<div className="flex items-center bg-slate-400 w-fit mt-3 mb-6">
 			<img
 				src={avatar}
 				alt={name}
+				className="object-cover rounded-full mr-2 w-14 h-14"
 			/>
 			<div>
 				<p>{name}</p>

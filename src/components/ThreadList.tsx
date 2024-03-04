@@ -1,4 +1,5 @@
 import { IThreadsAndUsers } from '@/declarations/interfaces';
+import ThreadItem from './ThreadItem';
 
 type ThreadListProps = {
 	threads: IThreadsAndUsers[]
@@ -6,14 +7,15 @@ type ThreadListProps = {
 
 const ThreadList = ({ threads }: ThreadListProps) => {
 	return (
-		<div>
-			<ul>
+		<div className="container flex justify-center">
+			<div className="w-4/6">
 				{threads?.map((thread) => (
-					<div key={thread.id}>
-						<p>{thread.users.name}</p>
-					</div>
+					<ThreadItem
+						key={thread.id}
+						thread={thread}
+					/>
 				))}
-			</ul>
+			</div>
 		</div>
 	);
 };

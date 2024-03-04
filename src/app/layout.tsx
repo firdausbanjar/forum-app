@@ -1,10 +1,7 @@
-'use client';
-
-import { Inter } from 'next/font/google';
 import StoreProvider from './StoreProvider';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 // export const metadata: Metadata = {
 // 	title: 'Create Next App',
@@ -15,8 +12,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 	return (
 		<StoreProvider>
 			<html lang="en">
-				<body className={inter.className}>
-					<span>{'Ini dari src/app/layout.tsx'}</span>
+				<body className="bg-gradient">
 					{children}
 				</body>
 			</html>

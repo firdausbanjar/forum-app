@@ -26,7 +26,7 @@ const clearThreadDetailActionCreator = () => {
 const asyncReceiveThreadDetail = (threadId: string) => {
 	return async (dispatch: Dispatch) => {
 		dispatch(showLoading());
-		clearThreadDetailActionCreator();
+		dispatch(clearThreadDetailActionCreator());
 
 		try {
 			const threadDetail: IThreadDetail = await api.getThreadDetail(threadId);

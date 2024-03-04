@@ -1,7 +1,30 @@
-import ThreadItem from '@/components/ThreadItem';
+'use client';
 
-const ThreadDetail = ({ params }: { params: { slug: string } }) => {
-	return <ThreadItem />;
+import { useEffect } from 'react';
+import ThreadDetail from '@/components/ThreadDetail';
+import { IThreadDetail } from '@/declarations/interfaces';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
+import { asyncReceiveThreadDetail } from '@/redux/threadDetail/action';
+
+const Detail = ({ params }: { params: { slug: string } }) => {
+	const threadDetail: IThreadDetail = useAppSelector((states: RootState) => states.threadDetail);
+	const threadId = params.slug;
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(asyncReceiveThreadDetail(threadId));
+	}, [dispatch, threadId]);
+
+	if (!threadDetail) {
+		return null;
+	}
+
+	return (
+		<div className="container flex justify-center">
+			<ThreadDetail thread={threadDetail} />
+		</div>
+	);
 };
 
-export default ThreadDetail;
+export default Detail;

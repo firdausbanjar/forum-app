@@ -11,7 +11,7 @@ import { RootState } from '@/redux/store';
 const Home = () => {
 	const threads: IThread[] = useAppSelector((states: RootState) => states.threads);
 	const users: IProfile[] = useAppSelector((states: RootState) => states.users);
-
+	const category: string = useAppSelector((states: RootState) => states.category);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -23,10 +23,10 @@ const Home = () => {
 		users: users.find((user) => user.id === thread.ownerId)!,
 	}));
 
-	const categories = threads.map((thread) => ({
-		id: thread.id,
-		category: thread.category,
-	}));
+	const categories = threadList.map((thread) => thread.category);
+	const setCategories = categories.filter((value, index) => categories.indexOf(value) === index);
+
+	const threadFilter = threadList.filter((thread) => thread.category.includes(category));
 
 	if (threads.length === 0 || users.length === 0) {
 		return null;
@@ -34,8 +34,8 @@ const Home = () => {
 
 	return (
 		<div className="container flex justify-center">
-			<ThreadList threads={threadList} />
-			<Categories categories={categories} />
+			<ThreadList threads={threadFilter} />
+			<Categories categories={setCategories} />
 		</div>
 	);
 };

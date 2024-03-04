@@ -12,7 +12,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 	return (
 		<StoreProvider>
 			<html lang="en">
-				<body className="bg-gradient">
+				<body className="bg-gradient h-screen">
 					{children}
 				</body>
 			</html>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Categories from '@/components/Categories';
 import ThreadList from '@/components/ThreadList';
 import { IProfile, IThread } from '@/declarations/interfaces';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -22,13 +23,19 @@ const Home = () => {
 		users: users.find((user) => user.id === thread.ownerId)!,
 	}));
 
+	const categories = threads.map((thread) => ({
+		id: thread.id,
+		category: thread.category,
+	}));
+
 	if (threads.length === 0 || users.length === 0) {
 		return null;
 	}
 
 	return (
-		<div className="h-full">
+		<div className="container flex justify-center">
 			<ThreadList threads={threadList} />
+			<Categories categories={categories} />
 		</div>
 	);
 };

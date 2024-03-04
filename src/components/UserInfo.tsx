@@ -1,3 +1,5 @@
+import { showFormattedDate } from '@/utils/utils';
+
 type UserInfoProps = {
 	avatar: string
 	name: string
@@ -10,11 +12,11 @@ const UserInfo = ({ name, createdAt, avatar }: UserInfoProps) => {
 			<img
 				src={avatar}
 				alt={name}
-				className="object-cover rounded-full mr-2 w-14 h-14"
+				className="object-cover rounded-full mr-2 w-12 h-12"
 			/>
 			<div>
-				<p className="font-semibold">{name}</p>
-				<p>{createdAt}</p>
+				<p className="text-xl font-semibold">{name}</p>
+				<p>{ showFormattedDate(createdAt, 'id-ID')}</p>
 			</div>
 		</div>
 	);

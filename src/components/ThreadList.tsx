@@ -7,15 +7,13 @@ type ThreadListProps = {
 
 const ThreadList = ({ threads }: ThreadListProps) => {
 	return (
-		<div className="container flex justify-center">
-			<div className="w-4/6">
-				{threads?.map((thread) => (
-					<ThreadItem
-						key={thread.id}
-						thread={thread}
-					/>
-				))}
-			</div>
+		<div className="w-3/6">
+			{threads?.map((thread) => (
+				<ThreadItem
+					key={thread.id}
+					thread={thread}
+				/>
+			))}
 		</div>
 	);
 };

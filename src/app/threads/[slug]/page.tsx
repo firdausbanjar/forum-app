@@ -1,5 +1,7 @@
+import ThreadItem from '@/components/ThreadItem';
+
 const ThreadDetail = ({ params }: { params: { slug: string } }) => {
-	return <h1>{`Ini halaman Thread Detail: ${params.slug}`}</h1>;
+	return <ThreadItem />;
 };
 
 export default ThreadDetail;

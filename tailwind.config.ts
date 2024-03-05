@@ -18,6 +18,7 @@ const config: Config = {
 			...colors,
 			black: '#001A45',
 			slate: {
+				...colors.slate,
 				200: '#EFF5F8'
 			},
 			

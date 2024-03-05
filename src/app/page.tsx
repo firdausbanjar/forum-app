@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Categories from '@/components/Categories';
+import CategoryList from '@/components/CategoryList';
 import ThreadList from '@/components/ThreadList';
 import { IProfile, IThread } from '@/declarations/interfaces';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -33,9 +33,9 @@ const Home = () => {
 	}
 
 	return (
-		<div className="container flex justify-center">
+		<div className="flex justify-end">
 			<ThreadList threads={threadFilter} />
-			<Categories categories={setCategories} />
+			<CategoryList categories={setCategories} />
 		</div>
 	);
 };

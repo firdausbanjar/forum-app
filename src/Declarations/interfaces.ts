@@ -36,7 +36,7 @@ export interface ICreateComment extends IComment {
 	owner: Omit<IProfile, 'avatar'>
 }
 
-interface IThreadDetailComment extends IComment {
+export interface IThreadDetailComment extends IComment {
 	owner: Omit<IProfile, 'email'>
 }
 

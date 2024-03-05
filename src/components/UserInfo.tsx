@@ -4,19 +4,26 @@ type UserInfoProps = {
 	avatar: string
 	name: string
 	createdAt: string
+	nameSize: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl'
+	imgSize: number
+	dateSize: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl'
 };
 
-const UserInfo = ({ name, createdAt, avatar }: UserInfoProps) => {
+const UserInfo = ({
+	name, createdAt, avatar, nameSize, imgSize, dateSize,
+}: UserInfoProps) => {
 	return (
-		<div className="flex items-center bg-slate-400 w-fit mt-3 mb-6">
+		<div className="flex items-center w-fit">
 			<img
 				src={avatar}
 				alt={name}
-				className="object-cover rounded-full mr-2 w-12 h-12"
+				className="object-cover rounded-full mr-2"
+				width={imgSize}
+				height={imgSize}
 			/>
 			<div>
-				<p className="text-xl font-semibold">{name}</p>
-				<p>{ showFormattedDate(createdAt, 'id-ID')}</p>
+				<p className={`text-${nameSize} font-semibold`}>{name}</p>
+				<p className={`text-${dateSize}`}>{showFormattedDate(createdAt, 'id-ID')}</p>
 			</div>
 		</div>
 	);

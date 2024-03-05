@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import CommentList from '@/components/CommentList';
 import ThreadDetail from '@/components/ThreadDetail';
 import { IThreadDetail } from '@/declarations/interfaces';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -21,8 +22,11 @@ const Detail = ({ params }: { params: { slug: string } }) => {
 	}
 
 	return (
-		<div className="container flex justify-center">
-			<ThreadDetail thread={threadDetail} />
+		<div className="flex justify-center">
+			<div className="w-3/6">
+				<ThreadDetail thread={threadDetail} />
+				<CommentList comments={threadDetail.comments} />
+			</div>
 		</div>
 	);
 };

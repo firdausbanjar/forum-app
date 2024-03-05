@@ -7,7 +7,7 @@ type ThreadListProps = {
 
 const ThreadList = ({ threads }: ThreadListProps) => {
 	return (
-		<div className="w-3/6">
+		<div className="w-1/2">
 			{threads?.map((thread) => (
 				<ThreadItem
 					key={thread.id}

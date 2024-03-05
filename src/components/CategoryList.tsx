@@ -6,7 +6,7 @@ type CategoriesProps = {
 	categories: string[]
 };
 
-const Categories = ({ categories }: CategoriesProps) => {
+const CategoryList = ({ categories }: CategoriesProps) => {
 	const category: string = useAppSelector((states: RootState) => states.category);
 	const dispatch = useAppDispatch();
 
@@ -19,14 +19,14 @@ const Categories = ({ categories }: CategoriesProps) => {
 	};
 
 	return (
-		<div className="fixed top-2 bg-white shadow-2xl p-8 text-wrap rounded-2xl right-6 w-1/4">
+		<div className="flex flex-col top-2 bg-white shadow-2xl p-8 text-wrap rounded-2xl h-fit ml-4 mt-2 w-80">
 			<h3 className="text-2xl">{'Kategori Populer'}</h3>
 			<div className="mt-5 flex flex-wrap">
 				{categories.map((value, key) => (
 					<span
 						key={key}
 						onClick={() => handleClickCategory(value)}
-						className={`bg-slate-200 py-2 px-4 rounded-full cursor-pointer -mt-1 my-2 -ml-1 mx-2 ${category === value && 'bg-blue-950 text-white'}`}
+						className={`border border-black py-2 px-4 rounded-xl cursor-pointer -mt-1 my-2 -ml-1 mx-2 ${category === value ? 'bg-black text-white' : 'bg-slate-200'}`}
 					>{`#${value}`}
 					</span>
 				))}
@@ -35,4 +35,4 @@ const Categories = ({ categories }: CategoriesProps) => {
 	);
 };
 
-export default Categories;
+export default CategoryList;

@@ -11,3 +11,11 @@
 		hsl(210deg 90% 84%) 100%
 	);
 }
+
+.scroll-bar {
+	overflow-y: scroll;
+}
+
+.scroll-bar::-webkit-scrollbar {
+	display: none;
+}

@@ -7,7 +7,6 @@ type ThreadDetailProps = {
 };
 
 const ThreadDetail = ({ thread }: ThreadDetailProps) => {
-	console.log(thread.comments);
 	return (
 		<div className="mt-2 bg-white shadow-2xl p-10 text-wrap rounded-2xl">
 			<h3 className="text-2xl font-bold mb-3">{thread.title}</h3>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import CommentInput from '@/components/CommentInput';
 import CommentList from '@/components/CommentList';
 import ThreadDetail from '@/components/ThreadDetail';
 import { IThreadDetail } from '@/declarations/interfaces';
@@ -25,7 +26,11 @@ const Detail = ({ params }: { params: { slug: string } }) => {
 		<div className="flex justify-center">
 			<div className="w-3/6">
 				<ThreadDetail thread={threadDetail} />
-				<CommentList comments={threadDetail.comments} />
+				<div className="bg-white shadow-2xl p-10 text-wrap rounded-2xl mt-2">
+					<h4 className="text-xl font-semibold mb-4">{'Komentar'}</h4>
+					<CommentInput />
+					<CommentList comments={threadDetail.comments} />
+				</div>
 			</div>
 		</div>
 	);

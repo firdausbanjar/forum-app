@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-const useContentEditable = <T>(
-	defaultValue: string = '',
-): [
-	T | T[] | string,
+const useContentEditable = (defaultValue: string = ''): [
+	string,
 	(event: React.FormEvent<HTMLDivElement>) => void,
 ] => {
 	const [value, setValue] = useState(defaultValue);

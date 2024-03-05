@@ -12,6 +12,7 @@
 		"import/prefer-default-export": "off",
 		"import/no-cycle": "off",
 		"quote-props": ["error", "as-needed"],
+		"function-paren-newline": "off",
 		"max-len": [
 			"error",
 			{

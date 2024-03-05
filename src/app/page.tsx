@@ -25,10 +25,9 @@ const Home = () => {
 
 	const categories = threadList.map((thread) => thread.category);
 	const setCategories = categories.filter((value, index) => categories.indexOf(value) === index);
-
 	const threadFilter = threadList.filter((thread) => thread.category.includes(category));
 
-	if (threads.length === 0 || users.length === 0) {
+	if (threadFilter.length <= 0) {
 		return null;
 	}
 

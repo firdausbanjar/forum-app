@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { ICreateComment, IThreadDetail } from '@/declarations/interfaces';
+import { IComment, IThreadDetail } from '@/declarations/interfaces';
 import { CommentT } from '@/declarations/types';
 import api from '@/utils/api';
 
@@ -25,7 +25,7 @@ const clearThreadDetailActionCreator = () => {
 	};
 };
 
-const addCommentActionCreator = (comment: ICreateComment) => {
+const addCommentActionCreator = (comment: IComment) => {
 	return {
 		type: ActionType.ADD_COMMENT,
 		payload: {
@@ -40,7 +40,7 @@ const asyncReceiveThreadDetail = (threadId: string) => {
 		dispatch(clearThreadDetailActionCreator());
 
 		try {
-			const threadDetail: IThreadDetail = await api.getThreadDetail(threadId);
+			const threadDetail = await api.getThreadDetail(threadId);
 			dispatch(receiveThreadDetailActionCreator(threadDetail));
 		} catch (error: any) {
 			alert(error.message);

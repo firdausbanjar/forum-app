@@ -1,22 +1,23 @@
 import useContentEditable from '@/hooks/useContentEditable';
 
-const CommentInput = () => {
-	const [comment, onInputComment] = useContentEditable('');
+type CommentInputProps = {
+	onComment: ({ content }: { content: string }) => void
+};
 
-	const handleSendComment = () => {
-		console.log(comment);
-	};
+const CommentInput = ({ onComment }: CommentInputProps) => {
+	const [comment, onInputComment] = useContentEditable('');
 
 	return (
 		<div className="flex flex-row justify-center items-center mb-7">
 			<div
-				className="w-11/12 h-16 p-2 caret-black outline-none border border-black mr-2 rounded-xl scroll-bar"
+				id="comment"
+				className="w-11/12 h-16 p-2 outline-none border border-black mr-2 rounded-xl scroll-bar"
 				contentEditable
 				onInput={onInputComment}
 			/>
 			<button
-				onClick={handleSendComment}
 				className="bg-black text-white px-4 h-16 rounded-xl"
+				onClick={() => onComment({ content: comment })}
 			>{'Kirim'}
 			</button>
 		</div>

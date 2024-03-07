@@ -1,6 +1,5 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import { IProfile, IThread } from '@/declarations/interfaces';
 import api from '@/utils/api';
 import { receiveThreadsActionCreator } from '../threads/action';
 import { receiveUsersActionCreator } from '../user/action';
@@ -10,8 +9,8 @@ const asyncReceiveThreadsAndUser = () => {
 		dispatch(showLoading());
 
 		try {
-			const threads: IThread[] = await api.getAllThreads();
-			const users: IProfile[] = await api.getAllUsers();
+			const threads = await api.getAllThreads();
+			const users = await api.getAllUsers();
 
 			dispatch(receiveThreadsActionCreator(threads));
 			dispatch(receiveUsersActionCreator(users));

@@ -41,7 +41,7 @@ const Home = () => {
 	}
 
 	return (
-		<section className="flex justify-end">
+		<section className="flex justify-end mb-28">
 			<ThreadList threads={threadFilter} />
 			<CategoryList
 				categories={setCategories}

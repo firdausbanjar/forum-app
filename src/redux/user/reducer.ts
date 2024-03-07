@@ -1,6 +1,7 @@
+import { IProfile } from '@/declarations/interfaces';
 import { ActionType } from './action';
 
-const usersReducer = (users = [], action: any = {}) => {
+const usersReducer = (users: IProfile[] = [], action: any = {}) => {
 	switch (action.type) {
 		case ActionType.RECEIVE_USERS:
 			return action.payload.users;

@@ -1,12 +1,9 @@
 import Link from 'next/link';
+import { RegisterT } from '@/declarations/types';
 import useInput from '@/hooks/useInput';
 
 type RegisterInputProps = {
-	onRegister: ({ name, email, password }: {
-		name: string
-		email: string
-		password: string
-	}) => void
+	onRegister: ({ name, email, password }: RegisterT) => void
 };
 
 const RegisterInput = ({ onRegister }: RegisterInputProps) => {

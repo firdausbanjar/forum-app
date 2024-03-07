@@ -1,4 +1,6 @@
-import StoreProvider from './StoreProvider';
+import Navigation from '@/components/Navigation';
+import StoreProvider from '@/components/StoreProvider';
+
 import './globals.css';
 
 // const inter = Inter({ subsets: ['latin'] });
@@ -16,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 					<main className="container">
 						{children}
 					</main>
+					<Navigation />
 				</body>
 			</html>
 		</StoreProvider>

@@ -7,7 +7,7 @@ import ThreadDetail from '@/components/ThreadDetail';
 import { IThreadDetail } from '@/declarations/interfaces';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { RootState } from '@/redux/store';
-import { asyncReceiveThreadDetail } from '@/redux/threadDetail/action';
+import { asyncAddComment, asyncReceiveThreadDetail } from '@/redux/threadDetail/action';
 
 const Detail = ({ params }: { params: { slug: string } }) => {
 	const threadDetail: IThreadDetail = useAppSelector((states: RootState) => states.threadDetail);
@@ -18,17 +18,25 @@ const Detail = ({ params }: { params: { slug: string } }) => {
 		dispatch(asyncReceiveThreadDetail(threadId));
 	}, [dispatch, threadId]);
 
+	const handleComment = ({ content }: { content: string }) => {
+		dispatch(asyncAddComment({ threadId, content }));
+		const commentElement = document.getElementById('comment');
+		if (commentElement) {
+			commentElement.innerHTML = '';
+		}
+	};
+
 	if (!threadDetail) {
 		return null;
 	}
 
 	return (
-		<section className="flex justify-center">
-			<div className="w-3/6">
+		<section className="flex justify-center mb-28">
+			<div className="w-1/2">
 				<ThreadDetail thread={threadDetail} />
 				<div className="bg-white shadow-2xl p-10 text-wrap rounded-2xl mt-2">
 					<h4 className="text-xl font-semibold mb-4">{'Komentar'}</h4>
-					<CommentInput />
+					<CommentInput onComment={handleComment} />
 					<CommentList comments={threadDetail.comments} />
 				</div>
 			</div>

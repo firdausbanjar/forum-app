@@ -3,7 +3,7 @@ import { showFormattedDate } from '@/utils/utils';
 type UserInfoProps = {
 	avatar: string
 	name: string
-	createdAt: string
+	createdAt?: string
 	nameSize: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl'
 	imgSize: number
 	dateSize: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl'
@@ -23,7 +23,7 @@ const UserInfo = ({
 			/>
 			<div>
 				<p className={`text-${nameSize} font-semibold`}>{name}</p>
-				<p className={`text-${dateSize}`}>{showFormattedDate(createdAt, 'id-ID')}</p>
+				{!createdAt !== undefined && <p className={`text-${dateSize}`}>{showFormattedDate(createdAt ?? '', 'id-ID')}</p>}
 			</div>
 		</div>
 	);

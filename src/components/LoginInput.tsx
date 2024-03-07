@@ -1,11 +1,9 @@
 import Link from 'next/link';
+import { LoginT } from '@/declarations/types';
 import useInput from '@/hooks/useInput';
 
 type LoginInputProps = {
-	onLogin: ({ email, password }: {
-		email: string
-		password: string
-	}) => void
+	onLogin: ({ email, password }: LoginT) => void
 };
 
 const LoginInput = ({ onLogin }: LoginInputProps) => {

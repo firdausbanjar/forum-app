@@ -21,7 +21,7 @@ const ThreadAction = ({
 					<p style={{ fontSize: iconSize }}>{totalLike}</p>
 				</div>
 				<span
-					className="bg-black mx-2"
+					className="bg-black"
 					style={{ width: 1, height: iconSize }}
 				>
 				</span>
@@ -33,16 +33,15 @@ const ThreadAction = ({
 					<p style={{ fontSize: iconSize }}>{totalDislike}</p>
 				</div>
 			</div>
-			{totalComments !== undefined
-				? (
-					<div className="flex justify-center items-center rounded-full bg-slate-200 py-2 px-4 w-fit">
-						<BiComment
-							className="mr-2"
-							size={iconSize}
-						/>
-						<p style={{ fontSize: iconSize }}>{totalComments}</p>
-					</div>
-				) : null}
+			{totalComments !== undefined && (
+				<div className="flex justify-center items-center rounded-full bg-slate-200 py-2 px-4 w-fit">
+					<BiComment
+						className="mr-2"
+						size={iconSize}
+					/>
+					<p style={{ fontSize: iconSize }}>{totalComments}</p>
+				</div>
+			)}
 		</div>
 	);
 };

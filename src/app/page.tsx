@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import CategoryList from '@/components/CategoryList';
 import ThreadList from '@/components/ThreadList';
 import { IProfile, IThread } from '@/declarations/interfaces';
-import { asyncClearCategory, asyncSetCategory } from '@/redux/category/action';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { asyncReceiveThreadsAndUser } from '@/redux/shared/action';
-import { RootState } from '@/redux/store';
+import { asyncClearCategory, asyncSetCategory } from '@/states/category/action';
+import { useAppDispatch, useAppSelector } from '@/states/hooks';
+import { asyncReceiveThreadsAndUser } from '@/states/shared/action';
+import { RootState } from '@/states/store';
 
 const Home = () => {
 	const threads: IThread[] = useAppSelector((states: RootState) => states.threads);

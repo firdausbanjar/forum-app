@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 import RegisterInput from '@/components/RegisterInput';
 import { RegisterT } from '@/declarations/types';
-import { useAppDispatch } from '@/redux/hooks';
-import { asyncRegisterUser } from '@/redux/user/action';
+import { useAppDispatch } from '@/states/hooks';
+import { asyncRegisterUser } from '@/states/user/action';
 
 const Register = () => {
 	const dispatch = useAppDispatch();

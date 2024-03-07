@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 import ThreadInput from '@/components/ThreadInput';
 import { ThreadT } from '@/declarations/types';
-import { useAppDispatch } from '@/redux/hooks';
-import { asyncAddThread } from '@/redux/threads/action';
+import { useAppDispatch } from '@/states/hooks';
+import { asyncAddThread } from '@/states/threads/action';
 
 const NewThread = () => {
 	const dispatch = useAppDispatch();

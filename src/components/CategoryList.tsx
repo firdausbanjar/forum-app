@@ -1,5 +1,5 @@
-import { useAppSelector } from '@/redux/hooks';
-import { RootState } from '@/redux/store';
+import { useAppSelector } from '@/states/hooks';
+import { RootState } from '@/states/store';
 
 type CategoriesProps = {
 	categories: string[]

@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 import LoginInput from '@/components/LoginInput';
 import { LoginT } from '@/declarations/types';
-import { asyncSetAuthUser } from '@/redux/auth/action';
-import { useAppDispatch } from '@/redux/hooks';
+import { asyncSetAuthUser } from '@/states/auth/action';
+import { useAppDispatch } from '@/states/hooks';
 
 const Login = () => {
 	const dispatch = useAppDispatch();

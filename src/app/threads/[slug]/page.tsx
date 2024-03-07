@@ -5,9 +5,9 @@ import CommentInput from '@/components/CommentInput';
 import CommentList from '@/components/CommentList';
 import ThreadDetail from '@/components/ThreadDetail';
 import { IThreadDetail } from '@/declarations/interfaces';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { RootState } from '@/redux/store';
-import { asyncAddComment, asyncReceiveThreadDetail } from '@/redux/threadDetail/action';
+import { useAppDispatch, useAppSelector } from '@/states/hooks';
+import { RootState } from '@/states/store';
+import { asyncAddComment, asyncReceiveThreadDetail } from '@/states/threadDetail/action';
 
 const Detail = ({ params }: { params: { slug: string } }) => {
 	const threadDetail: IThreadDetail = useAppSelector((states: RootState) => states.threadDetail);

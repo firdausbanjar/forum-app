@@ -6,9 +6,9 @@ import { MdOutlineLeaderboard } from 'react-icons/md';
 import {
 	RiAddLine, RiDiscussLine, RiLoginBoxLine, RiLogoutBoxLine,
 } from 'react-icons/ri';
-import { RootState } from '@/redux/store';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { asyncUnsetAuthUser } from '@/redux/auth/action';
+import { RootState } from '@/states/store';
+import { useAppDispatch, useAppSelector } from '@/states/hooks';
+import { asyncUnsetAuthUser } from '@/states/auth/action';
 
 const Navigation = () => {
 	const pathname = usePathname();

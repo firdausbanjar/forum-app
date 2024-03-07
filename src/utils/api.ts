@@ -51,7 +51,7 @@ const api = (() => {
 
 		const { data: { user } } = responseJson;
 
-		return user;
+		return { status, user };
 	};
 
 	const login = async ({ email, password }: LoginT) => {
@@ -72,7 +72,7 @@ const api = (() => {
 
 		const { data: { token } } = responseJson;
 
-		return token;
+		return { status, token };
 	};
 
 	const getOwnProfile = async () => {

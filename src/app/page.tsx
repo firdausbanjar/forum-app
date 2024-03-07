@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import CategoryList from '@/components/CategoryList';
 import ThreadList from '@/components/ThreadList';
 import { IProfile, IThread } from '@/declarations/interfaces';
+import { asyncClearCategory, asyncSetCategory } from '@/redux/category/action';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { asyncReceiveThreadsAndUser } from '@/redux/shared/action';
 import { RootState } from '@/redux/store';
@@ -27,15 +28,26 @@ const Home = () => {
 	const setCategories = categories.filter((value, index) => categories.indexOf(value) === index);
 	const threadFilter = threadList.filter((thread) => thread.category.includes(category));
 
+	const handleSetCategory = (value: string) => {
+		if (category === value) {
+			dispatch(asyncClearCategory());
+		} else {
+			dispatch(asyncSetCategory(value));
+		}
+	};
+
 	if (threadFilter.length <= 0) {
 		return null;
 	}
 
 	return (
-		<div className="flex justify-end">
+		<section className="flex justify-end">
 			<ThreadList threads={threadFilter} />
-			<CategoryList categories={setCategories} />
-		</div>
+			<CategoryList
+				categories={setCategories}
+				setCategory={handleSetCategory}
+			/>
+		</section>
 	);
 };
 

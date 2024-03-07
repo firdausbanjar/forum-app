@@ -1,8 +1,7 @@
-import useContentEditable from '@/hooks/usecontentEditable';
+import useContentEditable from '@/hooks/useContentEditable';
 
 const CommentInput = () => {
 	const [comment, onInputComment] = useContentEditable('');
-	// const dispatch = useAppDispatch();
 
 	const handleSendComment = () => {
 		console.log(comment);

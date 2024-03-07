@@ -22,7 +22,8 @@ const asyncRegisterUser = ({ name, email, password }: RegisterT) => {
 		dispatch(showLoading());
 
 		try {
-			await api.register({ name, email, password });
+			const { status } = await api.register({ name, email, password });
+			return status;
 		} catch (error: any) {
 			alert(error.message);
 		}

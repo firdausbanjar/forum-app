@@ -32,10 +32,11 @@ const asyncSetAuthUser = ({ email, password }: LoginT) => {
 		dispatch(showLoading());
 
 		try {
-			const token: string = await api.login({ email, password });
+			const { status, token } = await api.login({ email, password });
 			api.putAccessToken(token);
 			const authUser: IProfile = await api.getOwnProfile();
 			dispatch(setAuthUserActionCreator(authUser));
+			return status;
 		} catch (error: any) {
 			alert(error.message);
 		}

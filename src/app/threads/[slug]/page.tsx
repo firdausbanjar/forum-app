@@ -23,7 +23,7 @@ const Detail = ({ params }: { params: { slug: string } }) => {
 	}
 
 	return (
-		<div className="flex justify-center">
+		<section className="flex justify-center">
 			<div className="w-3/6">
 				<ThreadDetail thread={threadDetail} />
 				<div className="bg-white shadow-2xl p-10 text-wrap rounded-2xl mt-2">
@@ -32,7 +32,7 @@ const Detail = ({ params }: { params: { slug: string } }) => {
 					<CommentList comments={threadDetail.comments} />
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

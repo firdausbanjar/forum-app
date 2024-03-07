@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 const useContentEditable = (defaultValue: string = ''): [
 	string,
-	(event: React.FormEvent<HTMLDivElement>) => void,
+	(event: FormEvent<HTMLElement>) => void,
 ] => {
 	const [value, setValue] = useState(defaultValue);
 
-	const onValueChange = (event: React.FormEvent<HTMLDivElement>) => {
+	const handleValueChange = (event: FormEvent<HTMLElement>) => {
 		setValue(event.currentTarget.innerHTML);
 	};
 
-	return [value, onValueChange];
+	return [value, handleValueChange];
 };
 
 export default useContentEditable;

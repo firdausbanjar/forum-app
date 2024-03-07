@@ -13,6 +13,7 @@
 		"import/no-cycle": "off",
 		"quote-props": ["error", "as-needed"],
 		"function-paren-newline": "off",
+		"consistent-return": "off",
 		"max-len": [
 			"error",
 			{

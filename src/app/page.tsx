@@ -48,11 +48,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// const Home = () => {
-// 	const pathname = usePathname();
-
-// 	if (pathname === '/') redirect('/threads');
-// };
-
-// export default Home;

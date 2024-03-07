@@ -21,7 +21,6 @@ const asyncPreloadProccess = () => {
 
 		try {
 			const authUser = 'agam';
-			console.log(authUser);
 		} catch (error: any) {
 			dispatch(setAuthUserActionCreator(null));
 		} finally {

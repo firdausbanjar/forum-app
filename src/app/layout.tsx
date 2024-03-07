@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
-import StoreProvider from '@/components/StoreProvider';
 
+import StoreProvider from '@/components/StoreProvider';
 import './globals.css';
 
 // const inter = Inter({ subsets: ['latin'] });

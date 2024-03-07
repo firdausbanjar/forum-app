@@ -6,16 +6,19 @@ import threadDetailReducer from './threadDetail/reducer';
 import threadsReducer from './threads/reducer';
 import usersReducer from './user/reducer';
 
-export const store = configureStore({
-	reducer: {
-		authUser: authReducer,
-		users: usersReducer,
-		threads: threadsReducer,
-		threadDetail: threadDetailReducer,
-		category: categoryReducer,
-		loadingBar: loadingBarReducer,
-	},
-});
+export const makeStore = () => {
+	return configureStore({
+		reducer: {
+			authUser: authReducer,
+			users: usersReducer,
+			threads: threadsReducer,
+			threadDetail: threadDetailReducer,
+			category: categoryReducer,
+			loadingBar: loadingBarReducer,
+		},
+	});
+};
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

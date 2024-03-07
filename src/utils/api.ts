@@ -19,7 +19,7 @@ const api = (() => {
 	const BASE_URL = 'https://forum-api.dicoding.dev/v1';
 	const accessToken: string = 'accessToken';
 
-	const getAccessToken = () => localStorage.getItem(accessToken);
+	const getAccessToken = () => localStorage.getItem(accessToken || '');
 
 	const putAccessToken = (token: string) => {
 		localStorage.setItem(accessToken, token);

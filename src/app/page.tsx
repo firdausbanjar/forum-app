@@ -36,10 +36,6 @@ const Home = () => {
 		}
 	};
 
-	// if (threadFilter.length < 0) {
-	// 	return null;
-	// }
-
 	return (
 		<section className="flex justify-end mb-28">
 			<ThreadList threads={threadFilter} />
@@ -52,3 +48,11 @@ const Home = () => {
 };
 
 export default Home;
+
+// const Home = () => {
+// 	const pathname = usePathname();
+
+// 	if (pathname === '/') redirect('/threads');
+// };
+
+// export default Home;
